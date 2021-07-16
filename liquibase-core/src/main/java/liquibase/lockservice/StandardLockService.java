@@ -256,6 +256,8 @@ public class StandardLockService implements LockService {
             }
             throw new LockException("Could not acquire change log lock.  Currently locked by " + lockedBy);
         }
+
+        Scope.getCurrentScope().getLog(getClass()).fine("Successfully acquired changelog lock.");
     }
 
     @Override
